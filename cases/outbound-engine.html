@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Self-Improving Outbound Engine — Daniel Polozhy</title>
+  <meta name="description" content="Built a system that finds who to target, writes the outreach, sends across 3 channels, and uses conversion data to refine targeting each cycle — producing $300K ARR from zero.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <header class="container">
+    <nav class="nav">
+      <a href="../" class="nav__back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        All projects
+      </a>
+      <div class="nav__links">
+        <a href="https://www.linkedin.com/in/danielpolozhy/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container--narrow">
+
+    <!-- Hero -->
+    <section class="cs-hero">
+      <h1 class="cs-hero__title">The Self-Improving Demand Generation Engine</h1>
+      <p class="cs-hero__oneliner">Built a system that finds who to target, writes the outreach, sends across 3 channels, and uses conversion data to refine targeting each cycle — producing $300K ARR from zero.</p>
+    </section>
+
+    <!-- Quick Facts -->
+    <div class="quick-facts fade-in">
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div>
+          <div class="quick-fact__label">Role</div>
+          <div class="quick-fact__value">Solo builder (team of 3)</div>
+        </div>
+      </div>
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <div class="quick-fact__label">Duration</div>
+          <div class="quick-fact__value">12 months</div>
+        </div>
+      </div>
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <div>
+          <div class="quick-fact__label">Stack</div>
+          <div class="quick-fact__value">Python, Claude AI, Close CRM, Apollo, Smartlead, Brevo, HeyReach</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Situation -->
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The Situation</div>
+      <div class="cs-section__body">
+        <p>A B2B SaaS company needed enterprise-scale demand generation across email, LinkedIn, and phone — with 3 people. Every step was manual: finding audience segments meant eyeballing CRM data, writing copy took hours per segment, importing leads meant spreadsheet gymnastics. When a campaign ended, there was no systematic way to learn what worked. The team hit a throughput ceiling that couldn't scale without hiring.</p>
+      </div>
+    </section>
+
+    <!-- System -->
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The System</div>
+      <div class="cs-section__body">
+        <p>A 6-stage pipeline where each stage feeds the next, and results loop back to improve targeting:</p>
+      </div>
+
+      <!-- Diagram -->
+      <div class="diagram">
+        <div class="diagram__title">Pipeline Flow</div>
+        <div class="pipeline">
+          <div class="pipeline__node">
+            <span class="pipeline__node-num">01</span>
+            <span class="pipeline__node-name">Enrich</span>
+            <span class="pipeline__node-desc">AI processing, ICP filtering</span>
+          </div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__node">
+            <span class="pipeline__node-num">02</span>
+            <span class="pipeline__node-name">Import</span>
+            <span class="pipeline__node-desc">CRM dedup, 100K+ leads</span>
+          </div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__node">
+            <span class="pipeline__node-num">03</span>
+            <span class="pipeline__node-name">Discover</span>
+            <span class="pipeline__node-desc">AI segment analysis</span>
+          </div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__node">
+            <span class="pipeline__node-num">04</span>
+            <span class="pipeline__node-name">Write</span>
+            <span class="pipeline__node-desc">AI copy per segment</span>
+          </div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__node">
+            <span class="pipeline__node-num">05</span>
+            <span class="pipeline__node-name">Send</span>
+            <span class="pipeline__node-desc">3 providers, 0 duplicates</span>
+          </div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__node">
+            <span class="pipeline__node-num">06</span>
+            <span class="pipeline__node-name">Learn</span>
+            <span class="pipeline__node-desc">Results → CRM</span>
+          </div>
+          <div class="pipeline__feedback">
+            <span class="pipeline__feedback-text">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              Feedback loop — conversion data refines next cycle's targeting
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <ol class="system-steps">
+        <li class="system-step" data-step="1">
+          <div class="system-step__name">Enrich</div>
+          <div class="system-step__desc">Raw lead exports go through AI processing: normalization, country validation, title parsing, ICP filtering, deduplication. 400MB files in, clean targeting lists out.</div>
+        </li>
+        <li class="system-step" data-step="2">
+          <div class="system-step__name">Import</div>
+          <div class="system-step__desc">Bulk CRM population with intelligent dedup (matches by URL → LinkedIn → email). Handles 100K+ leads without overwriting existing records.</div>
+        </li>
+        <li class="system-step" data-step="3">
+          <div class="system-step__name">Discover</div>
+          <div class="system-step__desc">AI compares converted vs. non-converted leads to find why certain segments close. Generates new targeting criteria. Validates each segment has 2K–20K reachable contacts before passing downstream.</div>
+        </li>
+        <li class="system-step" data-step="4">
+          <div class="system-step__name">Write</div>
+          <div class="system-step__desc">AI generates email sequences per segment. Language-aware (local language for single-country segments), spintax for deliverability. Human approves before send.</div>
+        </li>
+        <li class="system-step" data-step="5">
+          <div class="system-step__name">Send</div>
+          <div class="system-step__desc">Campaigns run across 3 providers to reduce single-provider risk. Timezone-aware delivery (9AM–5PM recipient local time). Zero duplicates across providers.</div>
+        </li>
+        <li class="system-step" data-step="6">
+          <div class="system-step__name">Learn</div>
+          <div class="system-step__desc">Conversion data flows back to CRM. Next cycle, the system discovers refined segments from new results. Each run gets smarter.</div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Results -->
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The Results</div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-card__number">$300K</div>
+          <div class="metric-card__label">ARR generated from zero in 12 months with a 2-person team</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">300%</div>
+          <div class="metric-card__label">MQL conversion lift through iterative segment refinement</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">100K+</div>
+          <div class="metric-card__label">Emails per month across 3 providers with timezone-aware scheduling</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">-50%</div>
+          <div class="metric-card__label">Cost reduction while MQLs grew 35% month-over-month</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Under the Hood -->
+    <div class="expandable fade-in">
+      <button class="expandable__trigger" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        Under the Hood
+      </button>
+      <div class="expandable__content">
+        <div class="expandable__inner">
+          Python, Claude Sonnet/Opus, Close CRM API, Apollo API, Smartlead API, Brevo API, HeyReach API, SQLite, GitHub Actions. Every stage uses idempotent state tracking — crash and restart produces zero duplicates. Brevo reconciles its local DB against API events on every run. Segment discovery deduplicates across all previous runs so the system never re-targets the same audience. Human-in-the-loop approval gates before any campaign goes live.
+        </div>
+      </div>
+    </div>
+
+    <!-- Next -->
+    <section class="cs-section">
+      <a href="ai-calling.html" class="next-cs">
+        <div>
+          <div class="next-cs__label">Next project</div>
+          <div class="next-cs__title">AI Cold-Calling System</div>
+        </div>
+        <svg class="next-cs__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <a href="https://www.linkedin.com/in/danielpolozhy/" target="_blank" rel="noopener" class="hero__cta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        Connect on LinkedIn
+      </a>
+    </section>
+
+  </main>
+
+  <script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI SDR — Autonomous Lead Qualification — Daniel Polozhy</title>
+  <meta name="description" content="Built a 5-agent AI system that classifies replies, qualifies leads through conversation, generates contextual responses, and handles follow-ups across email and LinkedIn.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header class="container">
+    <nav class="nav">
+      <a href="../" class="nav__back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        All projects
+      </a>
+      <div class="nav__links">
+        <a href="https://www.linkedin.com/in/danielpolozhy/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container--narrow">
+
+    <section class="cs-hero">
+      <h1 class="cs-hero__title">Autonomous Lead Qualification</h1>
+      <p class="cs-hero__oneliner">Built a 5-agent AI system that reads every incoming reply, classifies intent, qualifies leads through conversation, generates contextual responses, updates CRM, and schedules follow-ups — handling the entire SDR function across email and LinkedIn.</p>
+    </section>
+
+    <div class="quick-facts fade-in">
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div>
+          <div class="quick-fact__label">Role</div>
+          <div class="quick-fact__value">Solo builder</div>
+        </div>
+      </div>
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <div class="quick-fact__label">Duration</div>
+          <div class="quick-fact__value">6 weeks to production</div>
+        </div>
+      </div>
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <div>
+          <div class="quick-fact__label">Stack</div>
+          <div class="quick-fact__value">n8n, OpenAI (5 agents), LangChain, Unipile, Close CRM, HeyReach</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The Situation</div>
+      <div class="cs-section__body">
+        <p>The demand generation engine sends 100K+ emails/month and runs LinkedIn campaigns. Every reply needs classification (interested? bad fit?), qualification (team size? CRM?), a contextual response, CRM updates, and follow-up scheduling. One person doing this for that volume is the bottleneck. Hiring SDRs is expensive and slow. The question: can AI handle the entire function — not just draft replies, but qualify, route, and follow up autonomously?</p>
+      </div>
+    </section>
+
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The System</div>
+      <div class="cs-section__body">
+        <p>A 5-agent AI pipeline that processes every incoming reply end-to-end:</p>
+      </div>
+
+      <!-- Agent Pipeline Diagram -->
+      <div class="diagram">
+        <div class="diagram__title">Agent Pipeline</div>
+        <div class="agent-pipeline">
+          <div class="agent-pipeline__agent">
+            <span class="agent-pipeline__num">Agent 1</span>
+            <span class="agent-pipeline__name">Categorize</span>
+            <span class="agent-pipeline__desc">5 intent categories</span>
+          </div>
+          <span class="agent-pipeline__arrow">→</span>
+          <div class="agent-pipeline__agent">
+            <span class="agent-pipeline__num">Agent 2</span>
+            <span class="agent-pipeline__name">Detect</span>
+            <span class="agent-pipeline__desc">Demo requests, referrals</span>
+          </div>
+          <span class="agent-pipeline__arrow">→</span>
+          <div class="agent-pipeline__agent">
+            <span class="agent-pipeline__num">Agent 3</span>
+            <span class="agent-pipeline__name">Orchestrate</span>
+            <span class="agent-pipeline__desc">KB + email drafting</span>
+          </div>
+          <span class="agent-pipeline__arrow">→</span>
+          <div class="agent-pipeline__agent">
+            <span class="agent-pipeline__num">Agent 4</span>
+            <span class="agent-pipeline__name">Qualify</span>
+            <span class="agent-pipeline__desc">Team size + CRM</span>
+          </div>
+          <span class="agent-pipeline__arrow">→</span>
+          <div class="agent-pipeline__agent">
+            <span class="agent-pipeline__num">Agent 5</span>
+            <span class="agent-pipeline__name">Send</span>
+            <span class="agent-pipeline__desc">Format + deliver</span>
+          </div>
+          <div class="agent-pipeline__branch">
+            <div class="agent-pipeline__branch-item agent-pipeline__branch-item--qualified">≥ 3 users → Qualified (demo link)</div>
+            <div class="agent-pipeline__branch-item agent-pipeline__branch-item--trial">&lt; 3 users → Trial offer</div>
+            <div class="agent-pipeline__branch-item agent-pipeline__branch-item--escalate">2+ replies, unknown → Human</div>
+          </div>
+        </div>
+      </div>
+
+      <ol class="system-steps">
+        <li class="system-step" data-step="1">
+          <div class="system-step__name">Categorize</div>
+          <div class="system-step__desc">Classifies each reply into 5 categories: interested, not interested, bad fit, later, or uncertain. Each category has specific rules ("thumbs up only" = not interested, "what's the pricing for 10 users?" = interested).</div>
+        </li>
+        <li class="system-step" data-step="2">
+          <div class="system-step__name">Detect demo requests</div>
+          <div class="system-step__desc">Checks if the lead explicitly wants a live demo or provided a referral contact. If yes → escalates to human via Slack with context. Not every interested lead needs a human — only demo-ready ones.</div>
+        </li>
+        <li class="system-step" data-step="3">
+          <div class="system-step__name">Orchestrate</div>
+          <div class="system-step__desc">Coordinates two sub-agents: a knowledge base agent that queries product docs for pricing/features/integrations, and an email creation agent that drafts the response using conversation context + KB answers.</div>
+        </li>
+        <li class="system-step" data-step="4">
+          <div class="system-step__name">Qualify</div>
+          <div class="system-step__desc">Tracks team size and CRM used across conversation turns. ≥3 users = qualified (demo booking link). &lt;3 = trial offer. Unknown = weaves qualification questions into the response. If 2+ replies pass without getting team size → flags for human.</div>
+        </li>
+        <li class="system-step" data-step="5">
+          <div class="system-step__name">Send + follow up</div>
+          <div class="system-step__desc">Formats as clean HTML, replies to the original thread, logs to tracking sheet, schedules follow-up. Escalating cadence: 3 → 7 → 14 business days. CRM-aware — cancels follow-ups if lead status changed.</div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The Results</div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-card__number">Full SDR</div>
+          <div class="metric-card__label">Function replaced — thousands of replies handled across email and LinkedIn with zero human drafting</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">&lt; 1 min</div>
+          <div class="metric-card__label">Response time — leads get contextual replies in seconds vs. hours from a human SDR</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">CRM-aware</div>
+          <div class="metric-card__label">Never emails closed or converted leads — auto-updates status on every interaction</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">Smart escalation</div>
+          <div class="metric-card__label">Only flags humans for demo requests, referrals, or qualification stalls after 2+ replies</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="expandable fade-in">
+      <button class="expandable__trigger" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        Under the Hood
+      </button>
+      <div class="expandable__content">
+        <div class="expandable__inner">
+          n8n (2 core workflows + sub-workflows), OpenAI GPT (5 specialized agents), LangChain (knowledge base retrieval), Unipile API (unified email — consistent thread management across providers, 2-account redundancy), Close CRM API, HeyReach API, Google Sheets, Slack. Progressive qualification: data accumulates across conversation turns rather than requiring everything in one reply. CRM-gated sending: status check before every outbound action prevents emailing leads who've already converted or been closed. Escalating follow-up cadence with weekend skipping (3/7/14 business days).
+        </div>
+      </div>
+    </div>
+
+    <section class="cs-section">
+      <a href="outbound-engine.html" class="next-cs">
+        <div>
+          <div class="next-cs__label">Next project</div>
+          <div class="next-cs__title">The Self-Improving Outbound Engine</div>
+        </div>
+        <svg class="next-cs__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </section>
+
+    <section class="cta-band">
+      <a href="https://www.linkedin.com/in/danielpolozhy/" target="_blank" rel="noopener" class="hero__cta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        Connect on LinkedIn
+      </a>
+    </section>
+
+  </main>
+
+  <script src="../main.js"></script>
+</body>
+</html>

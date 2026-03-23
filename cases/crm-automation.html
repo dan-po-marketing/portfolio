@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Updating CRM — Daniel Polozhy</title>
+  <meta name="description" content="Built a system where the CRM updates itself — product events sync lead statuses in real-time, demo recordings auto-analyze, and attribution reports deliver weekly to Slack.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header class="container">
+    <nav class="nav">
+      <a href="../" class="nav__back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        All projects
+      </a>
+      <div class="nav__links">
+        <a href="https://www.linkedin.com/in/danielpolozhy/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container--narrow">
+
+    <section class="cs-hero">
+      <h1 class="cs-hero__title">Self-Updating CRM</h1>
+      <p class="cs-hero__oneliner">Built a system where the CRM updates itself — product events sync lead statuses in real-time, demo recordings auto-analyze into structured notes, and attribution reports deliver weekly to Slack without anyone asking.</p>
+    </section>
+
+    <div class="quick-facts fade-in">
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div>
+          <div class="quick-fact__label">Role</div>
+          <div class="quick-fact__value">Solo builder</div>
+        </div>
+      </div>
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <div class="quick-fact__label">Scope</div>
+          <div class="quick-fact__value">7 workflows + 2 scheduled reports</div>
+        </div>
+      </div>
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <div>
+          <div class="quick-fact__label">Stack</div>
+          <div class="quick-fact__value">Make.com, TypeScript, Close CRM, PostHog, OpenAI, Zoom, GitHub Actions</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The Situation</div>
+      <div class="cs-section__body">
+        <p>CRM data rots fast. At a B2B SaaS company, leads would sign up for trials, attend demos, convert, or churn — and the CRM reflected none of it unless someone manually updated records. Demo calls generated insights that lived in people's heads, not in searchable fields. Every week, "what's working?" required hours of manual data pulling. The result: stale data, missed follow-ups, and no visibility into which channels drove revenue.</p>
+      </div>
+    </section>
+
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The System</div>
+      <div class="cs-section__body">
+        <p>Two layers working together: real-time event automation + scheduled attribution intelligence.</p>
+      </div>
+
+      <!-- Two-layer diagram -->
+      <div class="diagram">
+        <div class="diagram__title">System Architecture</div>
+        <div class="two-layer">
+          <div class="two-layer__layer">
+            <div class="two-layer__label">Real-Time Layer — 7 Make.com Workflows</div>
+            <div class="two-layer__items">
+              <div class="two-layer__item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg>
+                Signup / Purchase / Churn → CRM
+              </div>
+              <div class="two-layer__item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg>
+                Demo Recording → AI Analysis → CRM Note
+              </div>
+              <div class="two-layer__item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg>
+                Email Reply → AI Classification → CRM
+              </div>
+              <div class="two-layer__item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg>
+                Activity Enrichment
+              </div>
+              <div class="two-layer__item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg>
+                Widget Tracking
+              </div>
+            </div>
+          </div>
+          <div class="two-layer__center">
+            ↕ Close CRM ↕
+          </div>
+          <div class="two-layer__layer">
+            <div class="two-layer__label">Attribution Layer — TypeScript + GitHub Actions</div>
+            <div class="two-layer__items">
+              <div class="two-layer__item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+                Weekly: Marketing + Sales Attribution
+              </div>
+              <div class="two-layer__item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+                Monthly: CSV Export + MRR Data
+              </div>
+              <div class="two-layer__item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                → Slack Report Every Monday
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ol class="system-steps">
+        <li class="system-step" data-step="1">
+          <div class="system-step__name">Real-time event sync</div>
+          <div class="system-step__desc">Product events (signup, purchase, churn) automatically update lead status in CRM, populate UTM data, and send Slack notifications — no human touches the record.</div>
+        </li>
+        <li class="system-step" data-step="2">
+          <div class="system-step__name">Demo auto-analysis</div>
+          <div class="system-step__desc">Demo recordings upload to shared storage, AI extracts structured insights (pain points, team size, CRM used, objections, next steps), and writes a formatted note into the CRM within minutes of the call ending.</div>
+        </li>
+        <li class="system-step" data-step="3">
+          <div class="system-step__name">Reply classification</div>
+          <div class="system-step__desc">Outbound email replies get AI-classified as human vs. automated (out-of-office, bounce). Only human replies create CRM notes and Slack alerts. Noise gets filtered silently.</div>
+        </li>
+        <li class="system-step" data-step="4">
+          <div class="system-step__name">Attribution intelligence</div>
+          <div class="system-step__desc">Weekly report applies two attribution models (marketing and sales) to every new customer, cross-referencing email send dates, meeting timestamps, and conversion dates. Delivers to Slack every Monday.</div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The Results</div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-card__number">0</div>
+          <div class="metric-card__label">Manual CRM updates for the entire lead lifecycle — trial → customer → churn</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">&lt; 5 min</div>
+          <div class="metric-card__label">Demo insights in CRM after call ending — previously captured inconsistently or never</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">Weekly</div>
+          <div class="metric-card__label">Attribution reports delivered automatically — eliminated recurring status questions</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">100%</div>
+          <div class="metric-card__label">Audit trail — every CRM change has a traceable source event</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="expandable fade-in">
+      <button class="expandable__trigger" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        Under the Hood
+      </button>
+      <div class="expandable__content">
+        <div class="expandable__inner">
+          Make.com (7 workflows), TypeScript/Node.js, Zod validation, GitHub Actions, Close CRM API, PostHog API, Smartlead API, HeyReach API, OpenAI API, Zoom API, Google Sheets/Drive/Calendar, Slack, Intercom API. Make.com handles real-time event-driven flows (instant webhooks, visual debugging for the non-technical team). TypeScript handles attribution (complex date comparisons, multi-API orchestration, needs CI/CD). Two separate attribution models — marketing attribution checks outbound email timing vs. conversion dates, sales attribution checks meeting activity. Both run weekly on GitHub Actions with dry-run mode.
+        </div>
+      </div>
+    </div>
+
+    <section class="cs-section">
+      <a href="ai-sdr.html" class="next-cs">
+        <div>
+          <div class="next-cs__label">Next project</div>
+          <div class="next-cs__title">Autonomous Lead Qualification</div>
+        </div>
+        <svg class="next-cs__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </section>
+
+    <section class="cta-band">
+      <a href="https://www.linkedin.com/in/danielpolozhy/" target="_blank" rel="noopener" class="hero__cta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        Connect on LinkedIn
+      </a>
+    </section>
+
+  </main>
+
+  <script src="../main.js"></script>
+</body>
+</html>

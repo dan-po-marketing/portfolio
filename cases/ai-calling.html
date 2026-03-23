@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Cold-Calling System — Daniel Polozhy</title>
+  <meta name="description" content="Built an autonomous AI calling system that makes 100+ calls daily, qualifies leads on the phone, and automatically shuts down if anything goes wrong.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header class="container">
+    <nav class="nav">
+      <a href="../" class="nav__back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        All projects
+      </a>
+      <div class="nav__links">
+        <a href="https://www.linkedin.com/in/danielpolozhy/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container--narrow">
+
+    <section class="cs-hero">
+      <h1 class="cs-hero__title">AI Cold-Calling System</h1>
+      <p class="cs-hero__oneliner">Built an autonomous AI voice system that makes 100+ calls daily, qualifies leads on the phone, and automatically shuts itself down if anything goes wrong — runs 5 days/week with zero human intervention.</p>
+    </section>
+
+    <div class="quick-facts fade-in">
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div>
+          <div class="quick-fact__label">Role</div>
+          <div class="quick-fact__value">Solo builder</div>
+        </div>
+      </div>
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <div class="quick-fact__label">Duration</div>
+          <div class="quick-fact__value">4 weeks to production</div>
+        </div>
+      </div>
+      <div class="quick-fact">
+        <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <div>
+          <div class="quick-fact__label">Stack</div>
+          <div class="quick-fact__value">n8n, Retell AI, Google Sheets, Slack</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The Situation</div>
+      <div class="cs-section__body">
+        <p>Email and LinkedIn outreach take days to weeks for replies. Phone connects instantly — but nobody on a small team can make 100+ cold calls a day while running campaigns. And automated calling systems are dangerous: one bug can over-call leads, burn phone numbers, or rack up telephony costs with no one watching. The system needed to be fully autonomous <em>and</em> provably safe.</p>
+      </div>
+    </section>
+
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The System</div>
+      <div class="cs-section__body">
+        <p>6 interconnected workflows forming a complete AI calling operation:</p>
+      </div>
+
+      <!-- State Machine Diagram -->
+      <div class="diagram">
+        <div class="diagram__title">Call Status State Machine</div>
+        <div class="state-machine">
+          <div class="state-machine__row">
+            <div class="state-machine__node state-machine__node--active">Pending</div>
+            <span class="state-machine__arrow">→ call →</span>
+            <div class="state-machine__node">Processing</div>
+          </div>
+          <div class="state-machine__row">
+            <span class="state-machine__arrow">↓</span>
+          </div>
+          <div class="state-machine__row">
+            <div class="state-machine__node--terminal">Human Conversation</div>
+            <div class="state-machine__node">Retry (< 3 attempts)</div>
+            <div class="state-machine__node--terminal">Exhausted</div>
+          </div>
+          <div class="state-machine__row" style="margin-top: 1rem;">
+            <div class="state-machine__node--watchdog">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Watchdog — 6 anomaly checks every 30 min — auto-kills system on violation
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ol class="system-steps">
+        <li class="system-step" data-step="1">
+          <div class="system-step__name">Outbound engine</div>
+          <div class="system-step__desc">Runs hourly, Mon–Fri, 9AM–6PM in each lead's timezone. Pulls eligible leads (not already called, not exhausted, not terminal), initiates AI voice calls. Each lead gets up to 3 attempts with 24-hour cooldowns.</div>
+        </li>
+        <li class="system-step" data-step="2">
+          <div class="system-step__name">Post-call qualification</div>
+          <div class="system-step__desc">AI determines whether a real conversation happened (not voicemail). Extracts qualification data: team size, CRM used, objections, referral contacts. Updates lead status. Sends Slack alert for qualified leads.</div>
+        </li>
+        <li class="system-step" data-step="3">
+          <div class="system-step__name">Watchdog circuit breaker</div>
+          <div class="system-step__desc">Every 30 minutes, cross-references actual call logs against the lead database. Auto-kills the entire system and alerts the team if it detects: over-calling, terminal leads being re-called, mass failures, or data drift.</div>
+        </li>
+        <li class="system-step" data-step="4">
+          <div class="system-step__name">Callback handler</div>
+          <div class="system-step__desc">When a lead calls back, the system looks up their context (name, company, industry) and responds with a personalized AI agent.</div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="cs-section fade-in">
+      <div class="cs-section__label">The Results</div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-card__number">2,200+</div>
+          <div class="metric-card__label">Leads processed in a single campaign</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">0</div>
+          <div class="metric-card__label">Watchdog violations — zero runaway calls, zero duplicates across entire campaign</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">5 days</div>
+          <div class="metric-card__label">Per week, fully autonomous — hourly batches, zero human intervention</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__number">&lt; 5 min</div>
+          <div class="metric-card__label">From qualified call to Slack alert — sales follows up immediately</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="expandable fade-in">
+      <button class="expandable__trigger" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        Under the Hood
+      </button>
+      <div class="expandable__content">
+        <div class="expandable__inner">
+          n8n (6 workflows), Retell AI API, Google Sheets API, Slack webhooks. State machine with 5 statuses and 2 terminal states. 4-layer loop prevention: item-level status updates (not batch), 24-hour cooldown timestamps, permanent terminal statuses, hard cap on attempts. Circuit breaker checks 6 anomaly conditions every 30 minutes. Google Sheets chosen over a database because n8n has native integration and the sales team needed live visibility into call status without learning a new tool.
+        </div>
+      </div>
+    </div>
+
+    <section class="cs-section">
+      <a href="crm-automation.html" class="next-cs">
+        <div>
+          <div class="next-cs__label">Next project</div>
+          <div class="next-cs__title">Self-Updating CRM</div>
+        </div>
+        <svg class="next-cs__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </section>
+
+    <section class="cta-band">
+      <a href="https://www.linkedin.com/in/danielpolozhy/" target="_blank" rel="noopener" class="hero__cta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        Connect on LinkedIn
+      </a>
+    </section>
+
+  </main>
+
+  <script src="../main.js"></script>
+</body>
+</html>
