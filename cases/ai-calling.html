@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Cold-Calling System | Daniel Polozhy</title>
-  <meta name="description" content="Built an autonomous AI calling system that makes 100+ calls daily, qualifies leads on the phone, and automatically shuts down if anything goes wrong.">
+  <meta name="description" content="AI voice system that makes hundreds of calls daily, qualifies leads during the conversation, and routes qualified prospects to sales in real time.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
 
     <section class="cs-hero">
       <h1 class="cs-hero__title">AI Cold-Calling System</h1>
-      <p class="cs-hero__oneliner">Built an autonomous AI voice system that makes 100+ calls daily, qualifies leads on the phone, and automatically shuts itself down if anything goes wrong. Runs 5 days/week with zero human intervention.</p>
+      <p class="cs-hero__oneliner">AI voice system that makes hundreds of calls daily, qualifies leads during the conversation, and routes qualified prospects to sales in real time.</p>
     </section>
 
     <hr style="border:none;border-top:1px solid var(--border);margin:0">
@@ -40,47 +40,21 @@
     <section class="cs-section fade-in">
       <div class="cs-section__label">The System</div>
       <div class="cs-section__body">
-        <p>6 interconnected workflows forming a complete AI calling operation:</p>
-      </div>
-
-      <!-- State Machine Diagram -->
-      <div class="diagram">
-        <div class="diagram__title">Call Status State Machine</div>
-        <div class="state-machine">
-          <div class="state-machine__row">
-            <div class="state-machine__node state-machine__node--active">Pending</div>
-            <span class="state-machine__arrow">→ call →</span>
-            <div class="state-machine__node">Processing</div>
-          </div>
-          <div class="state-machine__row">
-            <span class="state-machine__arrow">↓</span>
-          </div>
-          <div class="state-machine__row">
-            <div class="state-machine__node--terminal">Human Conversation</div>
-            <div class="state-machine__node">Retry (< 3 attempts)</div>
-            <div class="state-machine__node--terminal">Exhausted</div>
-          </div>
-          <div class="state-machine__row" style="margin-top: 1rem;">
-            <div class="state-machine__node--watchdog">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Watchdog: 6 anomaly checks every 30 min, auto-kills system on violation
-            </div>
-          </div>
-        </div>
+        <p>Four components forming an autonomous calling operation:</p>
       </div>
 
       <ol class="system-steps">
         <li class="system-step" data-step="1">
-          <div class="system-step__name">Outbound engine</div>
-          <div class="system-step__desc">Runs hourly, Mon–Fri, 9AM–6PM in each lead's timezone. Pulls eligible leads (not already called, not exhausted, not terminal), initiates AI voice calls. Each lead gets up to 3 attempts with 24-hour cooldowns.</div>
+          <div class="system-step__name">Outbound calling</div>
+          <div class="system-step__desc">Runs hourly during business hours in each lead's timezone. Pulls eligible leads, initiates AI voice calls, and manages retry logic so no lead gets over-called.</div>
         </li>
         <li class="system-step" data-step="2">
-          <div class="system-step__name">Post-call qualification</div>
-          <div class="system-step__desc">AI determines whether a real conversation happened (not voicemail). Extracts qualification data: team size, CRM used, objections, referral contacts. Updates lead status. Sends Slack alert for qualified leads.</div>
+          <div class="system-step__name">Live qualification</div>
+          <div class="system-step__desc">Extracts qualification data from the call and updates lead status. Qualified leads trigger an instant Slack alert so sales can follow up within minutes.</div>
         </li>
         <li class="system-step" data-step="3">
-          <div class="system-step__name">Watchdog circuit breaker</div>
-          <div class="system-step__desc">Every 30 minutes, cross-references actual call logs against the lead database. Auto-kills the entire system and alerts the team if it detects: over-calling, terminal leads being re-called, mass failures, or data drift.</div>
+          <div class="system-step__name">Safety system</div>
+          <div class="system-step__desc">Continuously cross-references actual call logs against the lead database. Auto-kills the entire operation and alerts the team if it detects anomalies: over-calling, re-calling finished leads, mass failures, or data drift between systems.</div>
         </li>
         <li class="system-step" data-step="4">
           <div class="system-step__name">Callback handler</div>
@@ -89,8 +63,8 @@
       </ol>
     </section>
 
-    <section class="cs-section fade-in">
-      <div class="cs-section__label">The Results</div>
+    <section class="cs-section cs-section--results fade-in">
+      <div class="cs-section__label" style="text-align:center">The Results</div>
       <div class="metrics-grid">
         <div class="metric-card">
           <div class="metric-card__number">2,200+</div>
