@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI SDR | Autonomous Lead Qualification | Daniel Polozhy</title>
-  <meta name="description" content="Built a 5-agent AI system that classifies replies, qualifies leads through conversation, generates contextual responses, and handles follow-ups across email and LinkedIn.">
+  <meta name="description" content="AI system that handles the full SDR function across email and LinkedIn: classifies replies, qualifies leads through multi-turn conversation, responds with product knowledge, and follows up autonomously.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
 
     <section class="cs-hero">
       <h1 class="cs-hero__title">Autonomous Lead Qualification</h1>
-      <p class="cs-hero__oneliner">Built a 5-agent AI system that reads every incoming reply, classifies intent, qualifies leads through conversation, generates contextual responses, updates CRM, and schedules follow-ups, handling the entire SDR function across email and LinkedIn.</p>
+      <p class="cs-hero__oneliner">AI system that handles the full SDR function across email and LinkedIn: classifies replies, qualifies leads through multi-turn conversation, responds with product knowledge, and follows up autonomously.</p>
     </section>
 
     <hr style="border:none;border-top:1px solid var(--border);margin:0">
@@ -40,70 +40,29 @@
     <section class="cs-section fade-in">
       <div class="cs-section__label">The System</div>
       <div class="cs-section__body">
-        <p>A 5-agent AI pipeline that processes every incoming reply end-to-end:</p>
-      </div>
-
-      <!-- Agent Pipeline Diagram -->
-      <div class="diagram">
-        <div class="diagram__title">Agent Pipeline</div>
-        <div class="agent-pipeline">
-          <div class="agent-pipeline__agent">
-            <span class="agent-pipeline__num">Agent 1</span>
-            <span class="agent-pipeline__name">Categorize</span>
-            <span class="agent-pipeline__desc">5 intent categories</span>
-          </div>
-          <span class="agent-pipeline__arrow">→</span>
-          <div class="agent-pipeline__agent">
-            <span class="agent-pipeline__num">Agent 2</span>
-            <span class="agent-pipeline__name">Detect</span>
-            <span class="agent-pipeline__desc">Demo requests, referrals</span>
-          </div>
-          <span class="agent-pipeline__arrow">→</span>
-          <div class="agent-pipeline__agent">
-            <span class="agent-pipeline__num">Agent 3</span>
-            <span class="agent-pipeline__name">Orchestrate</span>
-            <span class="agent-pipeline__desc">KB + email drafting</span>
-          </div>
-          <span class="agent-pipeline__arrow">→</span>
-          <div class="agent-pipeline__agent">
-            <span class="agent-pipeline__num">Agent 4</span>
-            <span class="agent-pipeline__name">Qualify</span>
-            <span class="agent-pipeline__desc">Team size + CRM</span>
-          </div>
-          <span class="agent-pipeline__arrow">→</span>
-          <div class="agent-pipeline__agent">
-            <span class="agent-pipeline__num">Agent 5</span>
-            <span class="agent-pipeline__name">Send</span>
-            <span class="agent-pipeline__desc">Format + deliver</span>
-          </div>
-          <div class="agent-pipeline__branch">
-            <div class="agent-pipeline__branch-item agent-pipeline__branch-item--qualified">≥ 3 users → Qualified (demo link)</div>
-            <div class="agent-pipeline__branch-item agent-pipeline__branch-item--trial">&lt; 3 users → Trial offer</div>
-            <div class="agent-pipeline__branch-item agent-pipeline__branch-item--escalate">2+ replies, unknown → Human</div>
-          </div>
-        </div>
+        <p>An AI pipeline that processes every incoming reply end-to-end:</p>
       </div>
 
       <ol class="system-steps">
         <li class="system-step" data-step="1">
-          <div class="system-step__name">Categorize</div>
-          <div class="system-step__desc">Classifies each reply into 5 categories: interested, not interested, bad fit, later, or uncertain. Each category has specific rules ("thumbs up only" = not interested, "what's the pricing for 10 users?" = interested).</div>
+          <div class="system-step__name">Classify</div>
+          <div class="system-step__desc">Every incoming reply gets instant intent classification. Interested leads move forward. Declines, bad fits, and automated responses get filtered and logged without wasting anyone's time.</div>
         </li>
         <li class="system-step" data-step="2">
-          <div class="system-step__name">Detect demo requests</div>
-          <div class="system-step__desc">Checks if the lead explicitly wants a live demo or provided a referral contact. If yes → escalates to human via Slack with context. Not every interested lead needs a human, only demo-ready ones.</div>
+          <div class="system-step__name">Detect escalation triggers</div>
+          <div class="system-step__desc">Checks if the lead wants a live demo or provided a referral contact. Only these get escalated to a human via Slack with full context. Everything else stays in the AI pipeline.</div>
         </li>
         <li class="system-step" data-step="3">
-          <div class="system-step__name">Orchestrate</div>
-          <div class="system-step__desc">Coordinates two sub-agents: a knowledge base agent that queries product docs for pricing/features/integrations, and an email creation agent that drafts the response using conversation context + KB answers.</div>
+          <div class="system-step__name">Draft contextual response</div>
+          <div class="system-step__desc">Two sub-agents work together: one queries the product knowledge base for accurate pricing, features, and integration details. The other drafts a response grounded in the full conversation history.</div>
         </li>
         <li class="system-step" data-step="4">
-          <div class="system-step__name">Qualify</div>
-          <div class="system-step__desc">Tracks team size and CRM used across conversation turns. ≥3 users = qualified (demo booking link). &lt;3 = trial offer. Unknown = weaves qualification questions into the response. If 2+ replies pass without getting team size → flags for human.</div>
+          <div class="system-step__name">Qualify through conversation</div>
+          <div class="system-step__desc">Extracts qualification signals from natural conversation across multiple turns. Qualified leads get a demo booking link. If the system can't determine fit after multiple exchanges, it escalates to a human instead of guessing.</div>
         </li>
         <li class="system-step" data-step="5">
-          <div class="system-step__name">Send + follow up</div>
-          <div class="system-step__desc">Formats as clean HTML, replies to the original thread, logs to tracking sheet, schedules follow-up. Escalating cadence: 3 → 7 → 14 business days. CRM-aware: cancels follow-ups if lead status changed.</div>
+          <div class="system-step__name">Follow up autonomously</div>
+          <div class="system-step__desc">Replies to the original thread, logs everything, and schedules follow-ups on an escalating cadence. Checks CRM status before every action — never emails someone who's already converted or been closed.</div>
         </li>
       </ol>
     </section>
@@ -118,14 +77,6 @@
         <div class="metric-card">
           <div class="metric-card__number">138</div>
           <div class="metric-card__label">Demos booked through autonomous qualification and follow-up</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__number">CRM-aware</div>
-          <div class="metric-card__label">Never emails closed or converted leads. Auto-updates status on every interaction</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card__number">Smart escalation</div>
-          <div class="metric-card__label">Only flags humans for demo requests, referrals, or qualification stalls after 2+ replies</div>
         </div>
       </div>
     </section>
