@@ -52,20 +52,20 @@
         <div class="pipeline">
           <div class="pipeline__node">
             <span class="pipeline__node-num">01</span>
+            <span class="pipeline__node-name">Discover</span>
+            <span class="pipeline__node-desc">AI segment discovery</span>
+          </div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__node">
+            <span class="pipeline__node-num">02</span>
             <span class="pipeline__node-name">Enrich</span>
             <span class="pipeline__node-desc">AI cleaning + ICP filtering</span>
           </div>
           <span class="pipeline__arrow">→</span>
           <div class="pipeline__node">
-            <span class="pipeline__node-num">02</span>
+            <span class="pipeline__node-num">03</span>
             <span class="pipeline__node-name">Import</span>
             <span class="pipeline__node-desc">Import + CRM cleanup</span>
-          </div>
-          <span class="pipeline__arrow">→</span>
-          <div class="pipeline__node">
-            <span class="pipeline__node-num">03</span>
-            <span class="pipeline__node-name">Discover</span>
-            <span class="pipeline__node-desc">AI segment discovery</span>
           </div>
           <span class="pipeline__arrow">→</span>
           <div class="pipeline__node">
@@ -96,16 +96,16 @@
 
       <ol class="system-steps">
         <li class="system-step" data-step="1">
+          <div class="system-step__name">Discover</div>
+          <div class="system-step__desc">AI analyzes converted customers to find why they closed: pain points from real conversations, industry patterns, company signals. Generates targeting criteria for each discovered segment.</div>
+        </li>
+        <li class="system-step" data-step="2">
           <div class="system-step__name">Enrich</div>
           <div class="system-step__desc">Raw lead exports go through AI processing: normalization, country validation, title parsing, ICP filtering, deduplication. 400MB files in, clean targeting lists out.</div>
         </li>
-        <li class="system-step" data-step="2">
+        <li class="system-step" data-step="3">
           <div class="system-step__name">Import</div>
           <div class="system-step__desc">Every lead import doubles as a CRM cleaning session: deduplicates by URL → LinkedIn → email, flags conflicts, corrects stale data. Processing 100K leads/mo without failures.</div>
-        </li>
-        <li class="system-step" data-step="3">
-          <div class="system-step__name">Discover</div>
-          <div class="system-step__desc">AI analyzes converted customers to find why they closed: pain points from real conversations, industry patterns, company signals. Generates targeting criteria for each discovered segment.</div>
         </li>
         <li class="system-step" data-step="4">
           <div class="system-step__name">Write</div>
@@ -136,7 +136,7 @@
         </div>
         <div class="metric-card">
           <div class="metric-card__number">-30%</div>
-          <div class="metric-card__label">Channel spend while MQL volume grew month-over-month</div>
+          <div class="metric-card__label">Channel spend</div>
         </div>
       </div>
     </section>
