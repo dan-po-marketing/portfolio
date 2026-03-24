@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Self-Improving Outbound Engine — Daniel Polozhy</title>
-  <meta name="description" content="Built a system that finds who to target, writes the outreach, sends across 3 channels, and uses conversion data to refine targeting each cycle — producing $300K ARR from zero.">
+  <meta name="description" content="Built a system that discovers high-converting audience segments, generates personalized outreach, and feeds conversion data back to sharpen targeting each cycle — producing $300K ARR from zero.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
     <!-- Hero -->
     <section class="cs-hero">
       <h1 class="cs-hero__title">The Self-Improving Demand Generation Engine</h1>
-      <p class="cs-hero__oneliner">Built a system that finds who to target, writes the outreach, sends across 3 channels, and uses conversion data to refine targeting each cycle — producing $300K ARR from zero.</p>
+      <p class="cs-hero__oneliner">Built a system that discovers high-converting audience segments, generates personalized outreach, and feeds conversion data back to sharpen targeting each cycle — producing $300K ARR from zero.</p>
     </section>
 
     <!-- Quick Facts -->
@@ -36,21 +36,21 @@
         <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         <div>
           <div class="quick-fact__label">Role</div>
-          <div class="quick-fact__value">Solo builder (team of 3)</div>
+          <div class="quick-fact__value">Built and operated end-to-end</div>
         </div>
       </div>
       <div class="quick-fact">
         <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <div>
           <div class="quick-fact__label">Duration</div>
-          <div class="quick-fact__value">12 months</div>
+          <div class="quick-fact__value">3 months to production</div>
         </div>
       </div>
       <div class="quick-fact">
         <svg class="quick-fact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         <div>
           <div class="quick-fact__label">Stack</div>
-          <div class="quick-fact__value">Python, Claude AI, Close CRM, Apollo, Smartlead, Brevo, HeyReach</div>
+          <div class="quick-fact__value">Python, Claude AI, Close CRM, Apollo, Smartlead, HeyReach</div>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
     <section class="cs-section fade-in">
       <div class="cs-section__label">The Situation</div>
       <div class="cs-section__body">
-        <p>A B2B SaaS company needed enterprise-scale demand generation across email, LinkedIn, and phone — with 3 people. Every step was manual: finding audience segments meant eyeballing CRM data, writing copy took hours per segment, importing leads meant spreadsheet gymnastics. When a campaign ended, there was no systematic way to learn what worked. The team hit a throughput ceiling that couldn't scale without hiring.</p>
+        <p>A B2B SaaS company with a $100/mo product needed enterprise-scale demand generation — with a lean team. At that price point, volume is everything: you can't grow by closing a few big deals. Every step was manual: finding audience segments meant eyeballing CRM data, writing copy took hours per segment, importing leads meant spreadsheet gymnastics. When a campaign ended, there was no systematic way to learn what worked. The team hit a throughput ceiling that couldn't scale without hiring.</p>
       </div>
     </section>
 
@@ -77,37 +77,37 @@
           <div class="pipeline__node">
             <span class="pipeline__node-num">01</span>
             <span class="pipeline__node-name">Enrich</span>
-            <span class="pipeline__node-desc">AI processing, ICP filtering</span>
+            <span class="pipeline__node-desc">AI cleaning + ICP filtering</span>
           </div>
           <span class="pipeline__arrow">→</span>
           <div class="pipeline__node">
             <span class="pipeline__node-num">02</span>
             <span class="pipeline__node-name">Import</span>
-            <span class="pipeline__node-desc">CRM dedup, 100K+ leads</span>
+            <span class="pipeline__node-desc">Import + CRM cleanup</span>
           </div>
           <span class="pipeline__arrow">→</span>
           <div class="pipeline__node">
             <span class="pipeline__node-num">03</span>
             <span class="pipeline__node-name">Discover</span>
-            <span class="pipeline__node-desc">AI segment analysis</span>
+            <span class="pipeline__node-desc">AI segment discovery</span>
           </div>
           <span class="pipeline__arrow">→</span>
           <div class="pipeline__node">
             <span class="pipeline__node-num">04</span>
             <span class="pipeline__node-name">Write</span>
-            <span class="pipeline__node-desc">AI copy per segment</span>
+            <span class="pipeline__node-desc">Copy from segment insights</span>
           </div>
           <span class="pipeline__arrow">→</span>
           <div class="pipeline__node">
             <span class="pipeline__node-num">05</span>
             <span class="pipeline__node-name">Send</span>
-            <span class="pipeline__node-desc">3 providers, 0 duplicates</span>
+            <span class="pipeline__node-desc">Cold email + LinkedIn</span>
           </div>
           <span class="pipeline__arrow">→</span>
           <div class="pipeline__node">
             <span class="pipeline__node-num">06</span>
             <span class="pipeline__node-name">Learn</span>
-            <span class="pipeline__node-desc">Results → CRM</span>
+            <span class="pipeline__node-desc">Self-building knowledge base</span>
           </div>
           <div class="pipeline__feedback">
             <span class="pipeline__feedback-text">
@@ -125,23 +125,23 @@
         </li>
         <li class="system-step" data-step="2">
           <div class="system-step__name">Import</div>
-          <div class="system-step__desc">Bulk CRM population with intelligent dedup (matches by URL → LinkedIn → email). Handles 100K+ leads without overwriting existing records.</div>
+          <div class="system-step__desc">Every lead import doubles as a CRM cleaning session — deduplicates by URL → LinkedIn → email, flags conflicts, corrects stale data. 100K+ leads imported without a single overwrite.</div>
         </li>
         <li class="system-step" data-step="3">
           <div class="system-step__name">Discover</div>
-          <div class="system-step__desc">AI compares converted vs. non-converted leads to find why certain segments close. Generates new targeting criteria. Validates each segment has 2K–20K reachable contacts before passing downstream.</div>
+          <div class="system-step__desc">AI analyzes converted customers to find why they closed — pain points from real conversations, industry patterns, company signals. Generates targeting criteria for each discovered segment.</div>
         </li>
         <li class="system-step" data-step="4">
           <div class="system-step__name">Write</div>
-          <div class="system-step__desc">AI generates email sequences per segment. Language-aware (local language for single-country segments), spintax for deliverability. Human approves before send.</div>
+          <div class="system-step__desc">AI generates sequences per segment — grounded in pain points from real conversations, competitive research, and segment-specific value propositions. Language-aware (local language for single-country segments). Human approves before send.</div>
         </li>
         <li class="system-step" data-step="5">
           <div class="system-step__name">Send</div>
-          <div class="system-step__desc">Campaigns run across 3 providers to reduce single-provider risk. Timezone-aware delivery (9AM–5PM recipient local time). Zero duplicates across providers.</div>
+          <div class="system-step__desc">Cold email and LinkedIn campaigns execute with timezone-aware delivery (9AM–5PM recipient local time). Zero duplicates across channels.</div>
         </li>
         <li class="system-step" data-step="6">
           <div class="system-step__name">Learn</div>
-          <div class="system-step__desc">Conversion data flows back to CRM. Next cycle, the system discovers refined segments from new results. Each run gets smarter.</div>
+          <div class="system-step__desc">Every conversion, reply, and meeting outcome feeds back into a knowledge base the system builds over time. Next cycle, segment discovery draws on this accumulated intelligence. The engine gets measurably sharper with each run.</div>
         </li>
       </ol>
     </section>
@@ -152,19 +152,19 @@
       <div class="metrics-grid">
         <div class="metric-card">
           <div class="metric-card__number">$300K</div>
-          <div class="metric-card__label">ARR generated from zero in 12 months with a 2-person team</div>
+          <div class="metric-card__label">ARR from zero — built and operated by one person</div>
         </div>
         <div class="metric-card">
-          <div class="metric-card__number">300%</div>
-          <div class="metric-card__label">MQL conversion lift through iterative segment refinement</div>
+          <div class="metric-card__number">+47%</div>
+          <div class="metric-card__label">MQLs in 3 months through AI-driven segment discovery</div>
         </div>
         <div class="metric-card">
-          <div class="metric-card__number">100K+</div>
-          <div class="metric-card__label">Emails per month across 3 providers with timezone-aware scheduling</div>
+          <div class="metric-card__number">1,800</div>
+          <div class="metric-card__label">MQLs generated in 12 months of operation</div>
         </div>
         <div class="metric-card">
-          <div class="metric-card__number">-50%</div>
-          <div class="metric-card__label">Cost reduction while MQLs grew 35% month-over-month</div>
+          <div class="metric-card__number">-30%</div>
+          <div class="metric-card__label">Channel spend while MQL volume grew month-over-month</div>
         </div>
       </div>
     </section>
@@ -177,7 +177,7 @@
       </button>
       <div class="expandable__content">
         <div class="expandable__inner">
-          Python, Claude Sonnet/Opus, Close CRM API, Apollo API, Smartlead API, Brevo API, HeyReach API, SQLite, GitHub Actions. Every stage uses idempotent state tracking — crash and restart produces zero duplicates. Brevo reconciles its local DB against API events on every run. Segment discovery deduplicates across all previous runs so the system never re-targets the same audience. Human-in-the-loop approval gates before any campaign goes live.
+          Python, Claude Sonnet/Opus, Close CRM API, Apollo API, Smartlead API, HeyReach API, SQLite, GitHub Actions. Every stage uses idempotent state tracking — crash and restart produces zero duplicates. Segment discovery deduplicates across all previous runs so the system never re-targets the same audience. Human-in-the-loop approval gates before any campaign goes live.
         </div>
       </div>
     </div>
