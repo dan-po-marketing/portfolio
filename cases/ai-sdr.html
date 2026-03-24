@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI SDR — Autonomous Lead Qualification — Daniel Polozhy</title>
+  <title>AI SDR | Autonomous Lead Qualification | Daniel Polozhy</title>
   <meta name="description" content="Built a 5-agent AI system that classifies replies, qualifies leads through conversation, generates contextual responses, and handles follow-ups across email and LinkedIn.">
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -25,7 +25,7 @@
 
     <section class="cs-hero">
       <h1 class="cs-hero__title">Autonomous Lead Qualification</h1>
-      <p class="cs-hero__oneliner">Built a 5-agent AI system that reads every incoming reply, classifies intent, qualifies leads through conversation, generates contextual responses, updates CRM, and schedules follow-ups — handling the entire SDR function across email and LinkedIn.</p>
+      <p class="cs-hero__oneliner">Built a 5-agent AI system that reads every incoming reply, classifies intent, qualifies leads through conversation, generates contextual responses, updates CRM, and schedules follow-ups, handling the entire SDR function across email and LinkedIn.</p>
     </section>
 
     <div class="quick-facts fade-in">
@@ -55,7 +55,7 @@
     <section class="cs-section fade-in">
       <div class="cs-section__label">The Situation</div>
       <div class="cs-section__body">
-        <p>The demand generation engine runs campaigns across email and LinkedIn. Every reply needs classification (interested? bad fit?), qualification (team size? CRM?), a contextual response, CRM updates, and follow-up scheduling. Doing this manually at scale is the bottleneck. Hiring SDRs is expensive and slow. The question: can AI handle the entire function — not just draft replies, but qualify, route, and follow up autonomously?</p>
+        <p>The demand generation engine runs campaigns across email and LinkedIn. Every reply needs classification (interested? bad fit?), qualification (team size? CRM?), a contextual response, CRM updates, and follow-up scheduling. Doing this manually at scale is the bottleneck. Hiring SDRs is expensive and slow. The question: can AI handle the entire function, not just draft replies, but qualify, route, and follow up autonomously?</p>
       </div>
     </section>
 
@@ -113,7 +113,7 @@
         </li>
         <li class="system-step" data-step="2">
           <div class="system-step__name">Detect demo requests</div>
-          <div class="system-step__desc">Checks if the lead explicitly wants a live demo or provided a referral contact. If yes → escalates to human via Slack with context. Not every interested lead needs a human — only demo-ready ones.</div>
+          <div class="system-step__desc">Checks if the lead explicitly wants a live demo or provided a referral contact. If yes → escalates to human via Slack with context. Not every interested lead needs a human, only demo-ready ones.</div>
         </li>
         <li class="system-step" data-step="3">
           <div class="system-step__name">Orchestrate</div>
@@ -125,7 +125,7 @@
         </li>
         <li class="system-step" data-step="5">
           <div class="system-step__name">Send + follow up</div>
-          <div class="system-step__desc">Formats as clean HTML, replies to the original thread, logs to tracking sheet, schedules follow-up. Escalating cadence: 3 → 7 → 14 business days. CRM-aware — cancels follow-ups if lead status changed.</div>
+          <div class="system-step__desc">Formats as clean HTML, replies to the original thread, logs to tracking sheet, schedules follow-up. Escalating cadence: 3 → 7 → 14 business days. CRM-aware: cancels follow-ups if lead status changed.</div>
         </li>
       </ol>
     </section>
@@ -143,7 +143,7 @@
         </div>
         <div class="metric-card">
           <div class="metric-card__number">CRM-aware</div>
-          <div class="metric-card__label">Never emails closed or converted leads — auto-updates status on every interaction</div>
+          <div class="metric-card__label">Never emails closed or converted leads. Auto-updates status on every interaction</div>
         </div>
         <div class="metric-card">
           <div class="metric-card__number">Smart escalation</div>
@@ -159,7 +159,7 @@
       </button>
       <div class="expandable__content">
         <div class="expandable__inner">
-          n8n (2 core workflows + sub-workflows), OpenAI GPT (5 specialized agents), LangChain (knowledge base retrieval), Unipile API (unified email — consistent thread management across providers, 2-account redundancy), Close CRM API, HeyReach API, Google Sheets, Slack. Progressive qualification: data accumulates across conversation turns rather than requiring everything in one reply. CRM-gated sending: status check before every outbound action prevents emailing leads who've already converted or been closed. Escalating follow-up cadence with weekend skipping (3/7/14 business days).
+          n8n (2 core workflows + sub-workflows), OpenAI GPT (5 specialized agents), LangChain (knowledge base retrieval), Unipile API (unified email, consistent thread management across providers, 2-account redundancy), Close CRM API, HeyReach API, Google Sheets, Slack. Progressive qualification: data accumulates across conversation turns rather than requiring everything in one reply. CRM-gated sending: status check before every outbound action prevents emailing leads who've already converted or been closed. Escalating follow-up cadence with weekend skipping (3/7/14 business days).
         </div>
       </div>
     </div>
