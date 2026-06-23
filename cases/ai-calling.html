@@ -1,99 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Cold-Calling System | Daniel Polozhy</title>
-  <meta name="description" content="AI voice system that makes hundreds of calls daily, qualifies leads during the conversation, and routes qualified prospects to sales in real time.">
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=/portfolio/work/ai-cold-calling/">
+  <link rel="canonical" href="https://dan-po-marketing.github.io/portfolio/work/ai-cold-calling/">
+  <title>Redirecting...</title>
 </head>
 <body>
-
-  <header class="container">
-    <nav class="nav">
-      <a href="../" class="nav__back">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        All projects
-      </a>
-      <div class="nav__links">
-        <a href="https://www.linkedin.com/in/danielpolozhy/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </nav>
-  </header>
-
-  <main class="container--narrow">
-
-    <section class="cs-hero">
-      <h1 class="cs-hero__title">AI Cold-Calling System</h1>
-      <p class="cs-hero__oneliner">AI voice system that makes hundreds of calls daily, qualifies leads during the conversation, and routes qualified prospects to sales in real time.</p>
-    </section>
-
-    <hr style="border:none;border-top:1px solid var(--border);margin:0">
-
-    <section class="cs-section fade-in">
-      <div class="cs-section__label">The Situation</div>
-      <div class="cs-section__body">
-        <p>Email and LinkedIn outreach take days to weeks for replies. Phone connects instantly, but nobody can make 100+ cold calls a day while running campaigns. And automated calling systems are dangerous: one bug can over-call leads, burn phone numbers, or rack up telephony costs with no one watching. The system needed to be fully autonomous <em>and</em> provably safe.</p>
-      </div>
-    </section>
-
-    <section class="cs-section fade-in">
-      <div class="cs-section__label">The System</div>
-      <div class="cs-section__body">
-        <p>Four components forming an autonomous calling operation:</p>
-      </div>
-
-      <ol class="system-steps">
-        <li class="system-step" data-step="1">
-          <div class="system-step__name">Outbound calling</div>
-          <div class="system-step__desc">Runs hourly during business hours in each lead's timezone. Pulls eligible leads, initiates AI voice calls, and manages retry logic so no lead gets over-called.</div>
-        </li>
-        <li class="system-step" data-step="2">
-          <div class="system-step__name">Live qualification</div>
-          <div class="system-step__desc">Extracts qualification data from the call and updates lead status. Qualified leads trigger an instant Slack alert so sales can follow up within minutes.</div>
-        </li>
-        <li class="system-step" data-step="3">
-          <div class="system-step__name">Safety system</div>
-          <div class="system-step__desc">Continuously cross-references actual call logs against the lead database. Auto-kills the entire operation and alerts the team if it detects anomalies: over-calling, re-calling finished leads, mass failures, or data drift between systems.</div>
-        </li>
-        <li class="system-step" data-step="4">
-          <div class="system-step__name">Callback handler</div>
-          <div class="system-step__desc">When a lead calls back, the system looks up their context (name, company, industry) and responds with a personalized AI agent.</div>
-        </li>
-      </ol>
-    </section>
-
-    <div class="expandable fade-in">
-      <button class="expandable__trigger" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        Under the Hood
-      </button>
-      <div class="expandable__content">
-        <div class="expandable__inner">
-          n8n (6 workflows), Retell AI API, Google Sheets API, Slack webhooks. State machine with 5 statuses and 2 terminal states. 4-layer loop prevention: item-level status updates (not batch), 24-hour cooldown timestamps, permanent terminal statuses, hard cap on attempts. Circuit breaker checks 6 anomaly conditions every 30 minutes. Google Sheets chosen over a database because n8n has native integration and the sales team needed live visibility into call status without learning a new tool.
-        </div>
-      </div>
-    </div>
-
-    <section class="cs-section">
-      <a href="crm-automation.html" class="next-cs">
-        <div>
-          <div class="next-cs__label">Next project</div>
-          <div class="next-cs__title">CRM Automation & Attribution</div>
-        </div>
-        <svg class="next-cs__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-    </section>
-
-    <section class="cta-band">
-      <a href="https://www.linkedin.com/in/danielpolozhy/" target="_blank" rel="noopener" class="hero__cta">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        Connect on LinkedIn
-      </a>
-    </section>
-
-  </main>
-
-  <script src="../main.js"></script>
+  <p><a href="/portfolio/work/ai-cold-calling/">Continue to the updated case study.</a></p>
 </body>
 </html>
